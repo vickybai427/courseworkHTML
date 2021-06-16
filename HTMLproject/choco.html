@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Chocolate</title>
+	  <style type="text/css">
+	  </style>
+	  <link href="home.css" rel="stylesheet" type="text/css">	 
+
+	  <script type = "text/javascript">
+
+		// changing the styles of page content dynamically, changeing the background color. -->
+		function alterStyle(elem) {
+		  elem.style.background = 'green';
+		}
+
+		function resetStyle(elemId) {
+		  elem = document.getElementById(elemId);
+		  elem.style.background = 'white';
+		}	
+		   
+		  
+		  // use Spry Data to link one of your pages to a Spry XML 
+		  var asyncRequest; // variable to hold XMLHttpRequest object
+		   // set up and send the asynchronous request to get the XML file
+		   function getImages( url )
+		   {
+			  // attempt to create XMLHttpRequest object and make the request
+			  try
+			  {
+				 asyncRequest = new XMLHttpRequest(); // create request object
+
+				 // register event handler
+				 asyncRequest.addEventListener(
+					"readystatechange", processResponse, false); 
+				 asyncRequest.open( "GET", url, true ); // prepare the request
+				 asyncRequest.send( null ); // send the request
+			  } // end try
+			  catch ( exception )
+			  {
+				 alert( "Request Failed" );
+			  } // end catch
+		   } // end function getImages
+
+		   // parses the XML response; dynamically creates an undordered list and 
+		   // populates it with the response data; displays the list on the page
+		   function processResponse()
+		   {
+			  // if request completed successfully and responseXML is non-null
+			  if ( asyncRequest.readyState == 4 && asyncRequest.status == 200 && 
+				 asyncRequest.responseXML )
+			  {
+				 clearImages(); // prepare to display a new set of images
+
+				 // get the covers from the responseXML
+				 var covers = asyncRequest.responseXML.getElementsByTagName(
+					"cover" )
+
+				 // get base URL for the images
+				 var baseUrl = asyncRequest.responseXML.getElementsByTagName( 
+					"baseurl" ).item( 0 ).firstChild.nodeValue;
+
+				 // get the placeholder div element named covers
+				 var output = document.getElementById( "covers" );
+
+				 // create an unordered list to display the images
+				 var imagesUL = document.createElement( "ul" );
+
+				 // place images in unordered list
+				 for ( var i = 0; i < covers.length; ++i )
+				 {
+					var cover = covers.item( i ); // get a cover from covers array
+
+					// get the image filename
+					var image = cover.getElementsByTagName( "image" ).
+					   item( 0 ).firstChild.nodeValue;
+
+					// create li and img element to display the image
+					var imageLI = document.createElement( "li" );
+					var imageTag = document.createElement( "img" );
+
+					// set img element's src attribute
+					imageTag.setAttribute( "src", baseUrl + escape( image ) ); 
+					imageLI.appendChild( imageTag ); // place img in li
+					imagesUL.appendChild( imageLI ); // place li in ul
+				 } // end for statement
+
+				 output.appendChild( imagesUL ); // append ul to covers div
+			  } // end if 
+		   } // end function processResponse
+
+		   // clears the covers div
+		   function clearImages()
+		   {
+			  document.getElementById( "covers" ).innerHTML = ""; 
+		   } // end function clearImages
+
+		   // register event listeners
+		   function registerListeners()
+		   {
+			  document.getElementById( "all" ).addEventListener(
+				 "click", function() { getImages( "image.xml" ); }, false ); 
+			  
+		   } // end function registerListeners
+
+		   window.addEventListener( "load", registerListeners, false );
+	 </script>
+	 
+	 
+	</head>
+
+	<body>
+
+	  <div class="wrapper">
+	  <nav id="top">
+		  
+	<!--Add a rollover effect on ul using the mouseover and mouseout events -->
+		<ul>
+		  <li><a href="index.html"> Home</a></li>
+      	  <li><a href="choco.html">Chocolate</a></li>
+	  	  <li><a href="darkchoco.html">Dark Chocolate</a></li>
+      	  <li><a href="gift.html">Gifts</a></li>
+       	  <li><a href="aboutus.html">About Us</a></li>
+      	  <li><a href="card.html">Gift Card</a></li>
+      	  <li><a href="sitemap.html">Site Map</a></li>
+		</ul>
+	  </nav>		  
+		  
+	  <header>
+		<h2>V Chocolate</h2>
+		<p>We have the best chocolate </p>
+	  </header>
+	  <main>
+		<section>
+		<h1>Chocolate</h1>
+		<article>
+		  <h2>Different kinds of chocolate</h2>
+		  <img src="choco2.png" width="250" height="150" alt=""/>
+			
+			
+			<!-- use Spry Data to link one of your pages to a Spry XML  -->
+			<input type = "radio" name ="image" value = "all"  id = "all"> All Chocolate Images
+			<div id = "covers"></div>
+			
+			
+		  <p>There are three most popular chocolate:  
+		
+		<!--Add a rollover effect on some image or text using the mouseover and mouseout events. -->
+		  <ul id="test">
+			  <li>Milk Chcolate</li>
+			  <li>Dark Chcolate</li>
+			  <li>White Chcolate</li>
+		  
+		  </ul>
+			<script>
+			let test = document.getElementById("test");
+
+			// This handler will be executed only once when the cursor -->
+			// moves over the unordered list -->
+			test.addEventListener("mouseenter", function( event ) {   
+			  <!-- highlight the mouseenter target
+			  event.target.style.color = "purple";
+
+			  // reset the color after a short delay -->
+			  setTimeout(function() {
+				event.target.style.color = "";
+			  }, 500);
+			}, false);
+
+			// This handler will be executed every time the cursor -->
+			// is moved over a different list item -->
+			test.addEventListener("mouseover", function( event ) {   
+			  // highlight the mouseover target -->
+			  event.target.style.color = "orange";
+
+			  // reset the color after a short delay -->
+			  setTimeout(function() {
+				event.target.style.color = "";
+			  }, 500);
+			}, false);
+				
+			window.addEventListener( "load", registerListeners, false );
+				
+			</script>
+			
+		  </p>
+		  <h2>Milk Chcolate</h2>
+		  <div id="rcorners2">Milk chocolate is solid chocolate made with milk added in the form of powdered milk, liquid milk, 
+		  or condensed milk. In 1875, a Swiss confectioner, Daniel Peter, developed the first solid milk chocolate using condensed
+		  milk, which had been invented by Henri Nestlé, who was Peter's neighbour in Vevey.The US Government requires a 10%
+		  concentration of chocolate liquor. EU regulations specify a minimum of 25% cocoa solids. However, an agreement
+		  was reached in 2000 that allowed an exception from these regulations in the UK, Ireland, and Malta, where "milk 
+		  chocolate" can contain only 20% cocoa solids. Such chocolate is labelled as "family milk chocolate" elsewhere 
+		  in the European Union.Cadbury is the leading brand of milk chocolate in the United Kingdom.</div>
+		  <h2>Dark Chcolate</h2>
+		   <div id="rcorners3">Dark chocolate, also known as "plain chocolate", is produced using a higher percentage of cocoa with all fat content 
+		  coming from cocoa butter instead of milk, but there are also "dark milk" chocolates and many degrees of hybrids. 
+		  Dark chocolate can be eaten as is, or used in cooking, for which thicker baking bars, usually with high cocoa 
+		  percentages ranging from 70% to 100%, are sold. Baking chocolates containing no added sugar may be labeled 
+		  "unsweetened chocolate".</div>
+		  <h2>White Chcolate</h2>
+		   <p id="p1" onclick="alterStyle(this);">
+			White chocolate is made of sugar, milk, and cocoa butter, without the cocoa solids. 
+		  It is pale ivory color, and lacks many of the compounds found in milk and dark chocolates. 
+		  It remains solid at room temperature as that is below the melting point of cocoa butter.		</p>
+		</article>
+		</section>
+		  
+		<!-- passes a reference to the element's object as parameter 'this'. -->
+		
+
+		<!-- passes the 'p1' id of another element's style to modify. -->
+		<button onclick="resetStyle('p1');">Reset background color</button>
+		  
+		  
+	  </main>
+	 
+	  
+	  <footer>
+		<p>Email: vchoco@gmail.com  Phone: 206-826-0421</p>
+		<p>© All Right Reserved</p>
+	  </footer>
+	  </div>
+
+	</body>
+</html>
+

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Gift</title>
+	  <style type="text/css">
+	  </style>
+	  <link href="home.css" rel="stylesheet" type="text/css">
+		
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  <link rel="stylesheet" href="/resources/demos/style.css">
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script>
+		  $( function() {
+			$( "#datepicker" ).datepicker();
+		  } );
+
+ 	 </script>
+	
+	<script type = "text/javascript">
+		
+		// modifying the gift page content dynamically, allowed the users to dynamically modifying the h1 heading 
+			function changeTitle() {
+			   if (!document.getElementById) return;
+			   var newtitle = document.changeform.newtitle.value;
+			   var heading1 = document.getElementById("heading1");
+			   heading1.firstChild.nodeValue=newtitle;
+			}
+
+	</script>
+	
+	</head>
+	
+	<body>
+		<div class="wrapper">
+		<nav id="top">
+		  <ul>
+			<li><a href="index.html"> Home</a></li>
+      <li><a href="choco.html">Chocolate</a></li>
+	  <li><a href="darkchoco.html">Dark Chocolate</a></li>
+      <li><a href="gift.html">Gifts</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="card.html">Gift Card</a></li>
+      <li><a href="sitemap.html">Site Map</a></li>
+		  </ul>
+		</nav>
+		<header>
+		  <h2>V Chocolate</h2>
+		  <p>We have the best chocolate </p>
+	  </header>
+	  <main>
+		<aside class="sidebar1">
+		  <blockquote>
+		  <p>Holiday deals at V Choco.</p>
+		  <p> Give the gift of gourmet chocolates this holiday.</p>
+
+		  <p>Get 20% off $50+ or 25% off $75+ through 12/9. </p>
+
+			  <p>Free shipping on select Items.</p></blockquote>
+		</aside>
+		  
+		<section>
+		  <h1 id="heading1">Gifts</h1>
+		  <article>
+			<h2>We also have gift sets for holiday</h2>
+			<p>Enjory the holiday with V Choco.</p>
+			<p>Gifts for Christmas</p>
+			<img src="gift1.png" width="300" height="300" alt=""/>
+			<img src="gift2.png" width="300" height="300" alt=""/>
+			<li><a href="gift.html"> Click Here To buy Gifts</a></li>
+
+		  </article>
+		</section>
+		  
+		 <!-- change h1 text
+			-->
+		<form name="changeform">
+			<input type="text" name="newtitle" size="40" />
+			<button type="button" onclick="changeTitle();">Change Name!</button>
+		</form>
+		  
+		  
+
+		<!-- javascript to print current time and date
+			-->
+		<button type="button" onclick="document.getElementById('demo').innerHTML = Date()"> Click to display Current Date and Time.</button>
+		<p id="demo"></p>
+
+		<p id="chocovalue"></p>
+		
+		
+		<p>Date: <input type="text" id="datepicker"></p>
+	
+	
+	
+		
+	  </main>
+	  <footer>
+		<p>Email: vchoco@gmail.com  Phone: 206-826-0421</p>
+		<p>© All Right Reserved</p>
+	  </footer>
+	  </div>
+
+	</body>
+
+</html>
+

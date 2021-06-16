@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Card</title>
+	  <style type="text/css">
+	  </style>
+	  <link href="home.css" rel="stylesheet" type="text/css">
+	  
+	  <script type = "text/javascript">
+			<!-- javascript funcation change the image size		-->
+			function bigImg(x) {
+			  x.style.height = "64px";
+			  x.style.width = "64px";
+			}
+
+			function normalImg(x) {
+			  x.style.height = "42px";
+			  x.style.width = "42px";
+			}
+			
+
+		</script>
+	  
+	  
+	</head>
+
+	<body>
+		<div class="wrapper">
+		<nav id="top">
+		  <ul>
+			<li><a href="index.html"> Home</a></li>
+		  <li><a href="choco.html">Chocolate</a></li>
+		  <li><a href="darkchoco.html">Dark Chocolate</a></li>
+		  <li><a href="gift.html">Gifts</a></li>
+		  <li><a href="aboutus.html">About Us</a></li>
+		  <li><a href="card.html">Gift Card</a></li>
+		  <li><a href="sitemap.html">Site Map</a></li>
+		  </ul>
+		</nav>
+		<header>
+		  <h2>V Chocolate</h2>
+		  <p>We have the best chocolate </p>
+		</header>
+	  <main>
+		<section>
+		  <h1>Gift Card </h1>
+		  <p id="demo"></p>
+		  <script type="text/javascript">
+			function myFunction() {
+			var newpage = window.open("https://en.wikipedia.org/wiki/Chocolate", "", "width=400,height=400");
+			}
+		</script>		
+		
+		<div>
+			<button onclick="myFunction()">Get more information about chocolate</button>
+		</div>
+			
+			<!-- set the image -->
+			<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="smile.gif" alt="Smile" width="42" height="42">
+			
+			
+		  <article>
+			<h2>Always the perfect gift for the chocolate lovers in your life </h2>
+			<p>Everyone loves VChoco chocolate and enjoys receiving it for special occasions or just because. But sometimes we’re unsure what the perfect chocolate gift would be for someone. While all the chocolate gifts like the dark chocolate sets or the signature chocolate truffles make for a spectacular gift, you always want to make sure they get their absolute favorite chocolate. When faced with this conundrum, a chocolate gift certificate is a great option.</p>
+			<p>A chocolate gift certificate from VChoco gives them the opportunity to get their all time favorite chocolates or let's them try something new. And unlike other gift cards, this one is guaranteed to result in them indulging in the finest Belgian chocolates. Or give them an extra sweet gift by pairing a chocolate gift box of your choice with a gift certificate so they can have chocolate now and later. Just make sure to find out what they ended up getting with the gift certificate so the next time you can get that perfect chocolate gift for them and look like a hero.</p>
+	  
+		  </article>
+		</section>
+	  </main>
+	  <footer>
+		<p>Email: vchoco@gmail.com  Phone: 206-826-0421</p>
+		<p>© All Right Reserved</p>
+	  </footer>
+	  </div>
+
+	</body>
+</html>
+

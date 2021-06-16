@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	  <meta charset="UTF-8">
+	  <title>Chocolate</title>
+	  <style type="text/css">
+	  </style>
+	  <link href="home.css" rel="stylesheet" type="text/css">
+	
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+		  $("#hide").click(function(){
+			$("h3").hide();
+		  });
+		  $("#show").click(function(){
+			$("h3").show();
+		  });
+		});
+		</script>
+
+	</head>
+
+<body>
+
+  <div class="wrapper">
+  <nav id="top">
+    <ul>
+      <li><a href="index.html"> Home</a></li>
+      <li><a href="choco.html">Chocolate</a></li>
+	  <li><a href="darkchoco.html">Dark Chocolate</a></li>
+      <li><a href="gift.html">Gifts</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="card.html">Gift Card</a></li>
+      <li><a href="sitemap.html">Site Map</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h2>V Chocolate</h2>
+    <p>We have the best chocolate </p>
+  </header>
+	  
+  <main>
+    <section>
+    <h1>Chocolate</h1>
+  
+      <h2>Dark Chcolate</h2>
+		<img src="choco5.png" width="250" height="200" alt=""/>
+		
+		
+		<!-- Using jQuery effect to show or hide the calories of dark chocolate	-->
+		<h3>Calories 250 Calories from Fat 170 </h3>
+		<button id="hide">Hide</button>
+		<button id="show">Show</button>
+      
+		
+		<!-- Using XMLHttpRequest to display more information about dark chocolate	-->
+		<p id="demo">Dark chocolate, also known as "plain chocolate", is produced using a higher percentage of cocoa with all fat content coming from cocoa butter instead of milk, but there are also "dark milk" chocolates and many degrees 
+		of hybrids.</p>
+
+		<button type="button" onclick="loadDoc()">More Information about dark chocolate</button>
+
+		<script>
+		function loadDoc() {
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			  document.getElementById("demo").innerHTML = this.responseText;
+			}
+		  };
+		  xhttp.open("GET", "ajax_info.txt", true);
+		  xhttp.send();
+		}
+		</script>
+
+		
+      
+      <a href="choco.html">back to chocolate menu</a>
+
+
+    </section>
+	  
+	 <h2>Your Information for the order</h2>
+		<form>
+		  <label for="name">Name:</label><br>
+		  <input type="text" id="name" name="name"><br>
+		  <label for="email">Email:</label><br>
+		  <input type="text" id="email" name="email"><br>
+		  <input type="radio" id="male" name="gender" value="male">
+		  <label for="male">Male</label><br>
+		  <input type="radio" id="female" name="gender" value="female">
+		  <label for="female">Female</label><br>
+		  <input type="radio" id="other" name="gender" value="other">
+		  <label for="other">Other</label><br>
+		  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+		  <label for="vehicle1"> I like black chocolate</label><br>
+		  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+		  <label for="vehicle2"> I like white chocolate</label><br>
+		  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+		  <label for="vehicle3"> I like milk chocolate</label><br>
+		  <label for="cars">Choose a gift type:</label>
+		  <select id="cars" name="cars">
+			<option value="volvo">black chocolate</option>
+			<option value="saab">white chocolate</option>
+			<option value="audi">milk chocolate</option>
+		  </select>
+		  <input type="submit" value="Submit">
+		</form>
+    
+  </main>
+
+  <footer>
+    <p>Email: vchoco@gmail.com  Phone: 206-826-0421</p>
+    <p>© All Right Reserved</p>
+  </footer>
+  </div>
+
+</body>
+</html>
+

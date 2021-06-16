@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <title>VChoco Home</title>
+	  <link href="home.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	
+	
+	
+	<script type = "text/javascript">
+		<!-- javascript funcation show the hello message -->
+		function showMessage() {
+		  alert( 'Welcome to the chocolate world!' );
+		}
+		showMessage();
+		
+		<!-- javascript funcation for user to input the name, and output the name if null it will play "Welcome to V chocolate company dear"  -->
+		function username()
+		{
+			var output;
+			if(!localStorage.getItem("name"))
+			{
+				var userName = prompt("What is your name?");
+				localStorage.setItem("name",userName);
+			}
+			if(localStorage.getItem("name") === "null" || localStorage.getItem("name") === "")
+			{
+				output = "Welcome to V chocolate company dear";
+			}
+			else
+			{
+				var tempName = localStorage.getItem("name").substring(0,1).toUpperCase();
+				tempName = tempName + localStorage.getItem("name").substring(1).toLowerCase();
+				output = "Welcome to V chocolate company, " + tempName + "!";
+			}
+				document.getElementById("inputname").innerHTML = output;
+		}
+		
+		
+		//Listens for the start function to begin
+		window.addEventListener("load", start, false);
+	</script>
+	
+	
+	</head>
+
+	<body>
+	  <div class="wrapper">
+	  <nav id="top">
+		  <ul>
+			<li><a href="index.html"> Home</a></li>
+		  	<li><a href="choco.html">Chocolate</a></li>
+		  	<li><a href="darkchoco.html">Dark Chocolate</a></li>
+		 	<li><a href="gift.html">Gifts</a></li>
+		  	<li><a href="aboutus.html">About Us</a></li>
+		  	<li><a href="card.html">Gift Card</a></li>
+		  	<li><a href="sitemap.html">Site Map</a></li>
+		  </ul>
+	  </nav>
+	  <header>
+		<h2>V Chocolate</h2>
+		<p>We have the best chocolate </p>
+	  </header>
+	  <main id="maincontent">
+		<section>
+		  <h1>Home</h1>
+		  <article>
+			<h2 id="inputname">Welcome to V chocolate company!</h2>
+			<p>Hello, welcome to v Choco, we have the best chocolate. Hope you have a wonderful time.</p>
+		  </article>
+		</section>
+	  <img src="choco.png" width="200" height="200" alt=""/>
+	  <img src="choco1.png" width="200" height="200" alt=""/>
+	  <img src="choco3.png" width="200" height="200" alt=""/>
+	  <!-- InstanceEndEditable -->
+	  </main>
+	  <footer>
+		<p>Email: vchoco@gmail.com  Phone: 206-826-0421</p>
+		<p>© All Right Reserved</p>
+	  </footer>
+	  </div>
+
+	</body>
+</html>
+
